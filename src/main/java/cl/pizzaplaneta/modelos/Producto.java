@@ -27,7 +27,7 @@ public class Producto extends Modelo implements Serializable {
     @Column(name = "descripcion")
     String descripcion;
     @Column(name = "precioUnitario")
-    String precioUnitario;
+    long precioUnitario;
    
 
     public String getId() {
@@ -54,11 +54,11 @@ public class Producto extends Modelo implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getPrecioUnitario() {
+    public long getPrecioUnitario() {
         return precioUnitario;
     }
 
-    public void setPrecioUnitario(String precioUnitario) {
+    public void setPrecioUnitario(long precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
 
