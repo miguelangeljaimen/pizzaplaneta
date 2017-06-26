@@ -34,25 +34,25 @@ public class ProductoWs {
         ProductoDao pDao = new ProductoDao();
 
         try {
-            
-            if(nombre == null || nombre.equals("")){
+            if (nombre == null || nombre.equals("")) {
                 return "debe introducir nombre";
             }
-            if(descripcion == null || descripcion.equals("")){
+            if (descripcion == null || descripcion.equals("")) {
                 return "debe introducir descripcion";
             }
-            
             Producto producto = new Producto();
             producto.setId(UUID.randomUUID().toString());
             producto.setNombre(nombre);
             producto.setPrecioUnitario(precio);
-            producto.setDescripcion(descripcion);
+            producto.setDescripcion(descripcion); 
 
             System.out.println("Grabando nombre: " + producto.getNombre());
             System.out.println("Grabando desc: " + producto.getDescripcion());
             System.out.println("Grabando precio: " + producto.getPrecioUnitario());
-
-            pDao.iniciarTransaccion(); //inicia la transaccion en la base de datos
+            System.out.println("Iniciando transaccion");
+            
+            if(producto != null){
+             pDao.iniciarTransaccion(); //inicia la transaccion en la base de datos
             try {
                 System.out.println("Preparando grabar");
                 pDao.insert(producto); //intento insertar el campo en la BD
@@ -66,8 +66,13 @@ public class ProductoWs {
                 return "Error: " + e.getLocalizedMessage();
 
             }
-
             return "Grabo";
+            } else { 
+            
+                return "Producto es null";
+            }
+            
+           
         } catch (Exception e) {
 
             return "Error: " + e.getLocalizedMessage();
