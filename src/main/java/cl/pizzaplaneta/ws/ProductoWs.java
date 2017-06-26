@@ -12,6 +12,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
+import org.hibernate.HibernateException;
 
 /**
  *
@@ -44,35 +45,34 @@ public class ProductoWs {
             producto.setId(UUID.randomUUID().toString());
             producto.setNombre(nombre);
             producto.setPrecioUnitario(precio);
-            producto.setDescripcion(descripcion); 
+            producto.setDescripcion(descripcion);
 
             System.out.println("Grabando nombre: " + producto.getNombre());
             System.out.println("Grabando desc: " + producto.getDescripcion());
             System.out.println("Grabando precio: " + producto.getPrecioUnitario());
-            System.out.println("Iniciando transaccion");
-            
-            if(producto != null){
-             pDao.iniciarTransaccion(); //inicia la transaccion en la base de datos
-            try {
-                System.out.println("Preparando grabar");
-                pDao.insert(producto); //intento insertar el campo en la BD
-                pDao.commit(); //si no da error, hago commit
-                System.out.println("Commit");
-            } catch (Exception e) {
-                e.printStackTrace();
 
-                pDao.rollback(); //si hay algun error, hago rollback y no se aplica ningun cambio a la BD
-                System.out.println("ROllback");
-                return "Error: " + e.getLocalizedMessage();
+            if (producto != null) {
+                System.out.println("Iniciando transaccion");
+                pDao.iniciarTransaccion(); //inicia la transaccion en la base de datos
+                try {
+                    System.out.println("Preparando grabar");
+                    pDao.insert(producto); //intento insertar el campo en la BD
+                    System.out.println("Commit");
 
-            }
-            return "Grabo";
-            } else { 
-            
+                    pDao.commit(); //si no da error, hago commit
+                    return "Grabo";
+
+                } catch (HibernateException exception) {
+                    exception.printStackTrace();
+                    pDao.rollback(); //si hay algun error, hago rollback y no se aplica ningun cambio a la BD
+                    System.out.println("ROllback");
+                    return "Error: " + exception.getLocalizedMessage();
+
+                }
+            } else {
                 return "Producto es null";
             }
-            
-           
+
         } catch (Exception e) {
 
             return "Error: " + e.getLocalizedMessage();

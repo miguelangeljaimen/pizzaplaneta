@@ -31,24 +31,24 @@ public class Pizzeria {
             @WebParam(name = "venta") String resultado
     ) {
 
-//        VentaDao vDao = new VentaDao();
-//
-//        Venta venta = new Venta();
-////        venta.setClienteId("ID_CLIENTE_TEST");
-////        venta.setFecha(new Date());
-////        venta.setFolio(1);
-////        venta.setId(UUID.randomUUID().toString());
-////        venta.setTotal(13900);
-//
-//        vDao.iniciarTransaccion(); //inicia la transaccion en la base de datos
-//        try {
-//
-//            vDao.insert(venta); //intento insertar el campo en la BD
-//            vDao.commit(); //si no da error, hago commit
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            vDao.rollback(); //si hay algun error, hago rollback y no se aplica ningun cambio a la BD
-//        }
+        VentaDao vDao = new VentaDao();
+
+        Venta venta = new Venta();
+//        venta.setClienteId("ID_CLIENTE_TEST");
+//        venta.setFecha(new Date());
+//        venta.setFolio(1);
+//        venta.setId(UUID.randomUUID().toString());
+//        venta.setTotal(13900);
+
+        vDao.iniciarTransaccion(); //inicia la transaccion en la base de datos
+        try {
+
+            vDao.insert(venta); //intento insertar el campo en la BD
+            vDao.commit(); //si no da error, hago commit
+        } catch (Exception e) {
+            e.printStackTrace();
+            vDao.rollback(); //si hay algun error, hago rollback y no se aplica ningun cambio a la BD
+        }
 
         return "prueba";
     }
