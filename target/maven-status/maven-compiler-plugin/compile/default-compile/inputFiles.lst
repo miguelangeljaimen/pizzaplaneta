@@ -1,4 +1,5 @@
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/dao/VentaDao.java
+/Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/ws/Cliente.java
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/dao/Dao.java
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/dao/VendedorDao.java
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/dao/ClienteDao.java
@@ -6,11 +7,10 @@
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/modelos/Local.java
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/modelos/Cliente.java
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/dao/LocalDao.java
+/Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/ws/Producto.java
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/modelos/Vendedor.java
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/ws/Pizzeria.java
-/Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/ws/ProductoWs.java
+/Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/ws/Venta.java
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/modelos/Modelo.java
-/Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/ws/VentaWs.java
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/modelos/Producto.java
 /Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/modelos/Venta.java
-/Users/ricardo/Code/PizzaPlaneta/src/main/java/cl/pizzaplaneta/ws/ClienteWs.java

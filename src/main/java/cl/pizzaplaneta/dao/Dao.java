@@ -104,6 +104,7 @@ public abstract class Dao<T extends Modelo> {
      * @param obj objeto del tipo entity a insertar
      */
     public void insert(T obj) {
+        System.out.println("OBJ: " + obj.getClass().getName());
         getCurrentSession().save(obj);
     }
 

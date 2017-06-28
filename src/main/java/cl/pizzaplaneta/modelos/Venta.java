@@ -33,15 +33,17 @@ public class Venta extends Modelo implements Serializable {
     @Column(name = "fecha_creacion")
     @Temporal(TemporalType.TIMESTAMP)
     Date fechaCreacion;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cliente_id")
-    Cliente cliente;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "local_id")
-    Local local;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "vendedor_id")
-    Vendedor vendedor;
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "cliente_id")
+    @Column(name = "cliente_id")
+    String cliente;
+    //@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "local_id")
+    String localId;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "vendedor_id")
+    @Column(name = "vendedor_id")
+    String vendedorId;
     @Column(name = "folio")
     Long folio;
 
@@ -69,28 +71,28 @@ public class Venta extends Modelo implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Cliente getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
-    public Local getLocal() {
-        return local;
+    public String getLocalId() {
+        return localId;
     }
 
-    public void setLocal(Local local) {
-        this.local = local;
+    public void setLocalId(String localId) {
+        this.localId = localId;
     }
 
-    public Vendedor getVendedor() {
-        return vendedor;
+    public String getVendedorId() {
+        return vendedorId;
     }
 
-    public void setVendedor(Vendedor vendedor) {
-        this.vendedor = vendedor;
+    public void setVendedorId(String vendedorId) {
+        this.vendedorId = vendedorId;
     }
 
     public Long getFolio() {
@@ -101,4 +103,5 @@ public class Venta extends Modelo implements Serializable {
         this.folio = folio;
     }
 
+    
 }
