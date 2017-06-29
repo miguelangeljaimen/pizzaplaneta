@@ -38,11 +38,12 @@ public class Pizzeria {
             return "debe introducir descripcion";
         }
         cl.pizzaplaneta.modelos.Producto producto = new cl.pizzaplaneta.modelos.Producto();
+        
         producto.setId(UUID.randomUUID().toString());
         producto.setNombre(nombre);
         producto.setPrecioUnitario(precio);
         producto.setDescripcion(descripcion);
-
+        System.out.println("Grabando ID: " + producto.getId());
         System.out.println("Grabando nombre: " + producto.getNombre());
         System.out.println("Grabando desc: " + producto.getDescripcion());
         System.out.println("Grabando precio: " + producto.getPrecioUnitario());
