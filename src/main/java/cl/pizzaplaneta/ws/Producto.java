@@ -6,6 +6,7 @@
 package cl.pizzaplaneta.ws;
 
 import cl.pizzaplaneta.dao.ProductoDao;
+import com.thoughtworks.xstream.XStream;
 import java.util.UUID;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -25,17 +26,19 @@ public class Producto {
      */
     @WebResult(name = "producto")
     @WebMethod(operationName = "registrarProducto")
-    public String registrarProducto(
+    public cl.pizzaplaneta.modelos.Producto registrarProducto(
             @WebParam(name = "nombre") String nombre,
             @WebParam(name = "descripcion") String descripcion,
             @WebParam(name = "precio") long precio
     ) {
 
         if (nombre == null || nombre.equals("")) {
-            return "debe introducir nombre";
+            System.out.println("debe introducir nombre");
+            //return "debe introducir nombre";
         }
         if (descripcion == null || descripcion.equals("")) {
-            return "debe introducir descripcion";
+            System.out.println("debe introducir descripcion");
+            //return "debe introducir descripcion";
         }
         cl.pizzaplaneta.modelos.Producto producto = new cl.pizzaplaneta.modelos.Producto();
         producto.setId(UUID.randomUUID().toString());
@@ -56,15 +59,18 @@ public class Producto {
             System.out.println("Commit");
 
             pDao.commit(); //si no da error, hago commit
-            return "Grabo";
+            
+            return producto;
 
         } catch (HibernateException exception) {
             exception.printStackTrace();
             pDao.rollback(); //si hay algun error, hago rollback y no se aplica ningun cambio a la BD
             System.out.println("ROllback");
-            return "Error: " + exception.getLocalizedMessage();
+            System.out.println("Error: " + exception.getLocalizedMessage());
+            //return "Error: " + exception.getLocalizedMessage();
 
         }
+        return null;
 
     }
 
